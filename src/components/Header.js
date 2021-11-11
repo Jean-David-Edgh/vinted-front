@@ -8,6 +8,7 @@ const Header = () => {
         <button>S'inscrire</button>
         <button>Se connecter</button>
         <button>Vends tes articles</button>
+        <button>Se déconnecter</button>
       </div>
     </div>
   );
