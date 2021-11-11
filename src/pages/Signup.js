@@ -1,41 +1,51 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-import express from "express";
-import formidable from "express-formidable";
-// import mongoose from "mongoose";
-import morgan from "morgan";
-import cors from "cors";
+import axios from "axios";
 
 const Signup = () => {
-  const app = express();
-  app.use(formidable());
-  app.use(morgan("dev"));
-  // Dépendances MDP
-  const SHA256 = require("crypto-js/sha256");
-  const encBase64 = require("crypto-js/enc-base64");
-  const uid2 = require("uid2");
-
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [step2, setStep2] = useState(false);
   const [cookie, setCookie] = useState();
+  const [data, setData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (password === confirmPassword) {
-      setStep2(true);
-      const token = "azertyuiop";
-      Cookies.set("myToken", token, { expires: 30 });
-      navigate("/");
-    } else {
-      alert("Vos mots de passe ne sont pas identiques ! Débilos $$");
-    }
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.post(
+          "https://lereacteur-vinted-api.herokuapp.com/user/signup"
+        );
+        setData(response.data);
+
+        setIsLoading(false);
+
+        const handleSubmit = (event) => {
+          event.preventDefault();
+          if (password === confirmPassword) {
+            setStep2(true);
+            const token = {};
+            Cookies.set(
+              "myToken",
+              { value: response.data.token },
+              { expires: 30 }
+            );
+            navigate("/");
+          } else {
+            alert("Vos mots de passe ne sont pas identiques ! Abruti $$");
+          }
+        };
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="signup">
