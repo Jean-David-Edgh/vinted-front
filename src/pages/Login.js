@@ -23,9 +23,11 @@ const Login = () => {
       if (response.data.token) {
         Cookies.set("myToken", response.data.token, { expires: 30 });
         navigate("/");
-      } else alert("mauvais compte ou mot de passe");
+      }
     } catch (error) {
-      console.log(error.message);
+      if (error.response.status === 401) {
+        alert("mauvais compte ou mot de passe");
+      } else console.log(error.message);
     }
   };
 
