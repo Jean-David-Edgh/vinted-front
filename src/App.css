@@ -1,1 +1,31 @@
 /* Other rules */
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid lightgrey;
+  padding-left: 30px;
+}
+
+.footer {
+  height: 100px;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero {
+  height: 20px;
+  margin-top: 20px;
+}
+
+.header img {
+  height: 75px;
+}
+
+.offers {
+  height: 400px;
+  width: 300px;
+  object-fit: cover;
+}

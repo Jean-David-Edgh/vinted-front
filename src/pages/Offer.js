@@ -4,7 +4,6 @@ import axios from "axios";
 
 const Offer = () => {
   const { id } = useParams();
-  // console.log(id);
 
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -15,7 +14,6 @@ const Offer = () => {
         const response = await axios.get(
           `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
         );
-        // console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -28,11 +26,10 @@ const Offer = () => {
   return isLoading ? (
     <div>En cours de chargement...</div>
   ) : (
-    <div>
+    <div className="offers">
       <h3>{data.product_name}</h3>
       <img src={data.product_image.secure_url} alt="" />
       <ul>
-        {/* COMMENTAIRES */}
         {data.product_details.map((elem, index) => {
           const keys = Object.keys(elem);
           return (
