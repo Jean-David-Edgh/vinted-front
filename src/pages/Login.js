@@ -16,10 +16,11 @@ const Login = () => {
         "https://lereacteur-vinted-api.herokuapp.com/user/login",
         { email: email, password: password }
       ); // en fonction de la réponse
-      if (
-        response.data.password === { password } ||
-        response.data.email === { email }
-      ) {
+      //   if (
+      //     response.data.password === { password } ||
+      //     response.data.email === { email }
+      //   )
+      if (response.data.token) {
         Cookies.set("myToken", response.data.token, { expires: 30 });
         navigate("/");
       } else alert("mauvais compte ou mot de passe");
