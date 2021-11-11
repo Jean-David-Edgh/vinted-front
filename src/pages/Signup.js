@@ -1,8 +1,21 @@
 import { useState } from "react";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import express from "express";
+import formidable from "express-formidable";
+// import mongoose from "mongoose";
+import morgan from "morgan";
+import cors from "cors";
 
 const Signup = () => {
+  const app = express();
+  app.use(formidable());
+  app.use(morgan("dev"));
+  // Dépendances MDP
+  const SHA256 = require("crypto-js/sha256");
+  const encBase64 = require("crypto-js/enc-base64");
+  const uid2 = require("uid2");
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
