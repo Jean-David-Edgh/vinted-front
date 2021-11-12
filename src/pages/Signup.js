@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -24,7 +23,6 @@ const Signup = ({ setUser }) => {
         );
         // en fonction de la réponse
         if (response.data.token) {
-          // Cookies.set("myToken", response.data.token, { expires: 30 });
           setUser(response.data.token);
           navigate("/");
         } else alert("erreur");
