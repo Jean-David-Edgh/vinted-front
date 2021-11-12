@@ -80,7 +80,7 @@ const Signup = ({ setUser }) => {
           <br />
           <span style={{ color: "red" }}>{errorMessage}</span>
           <br />
-          <input type="submit" />
+          <input type="submit" value={"S'inscrire"} className="submit" />
         </form>
       ) : (
         setStep2(true)

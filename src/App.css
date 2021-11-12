@@ -1,31 +1,89 @@
-/* Other rules */
+/* GLOBAL RULES */
+
+/* TITLES */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* HEADER */
 .header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid lightgrey;
-  padding-left: 30px;
-}
-
-.footer {
-  height: 100px;
-  margin-top: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero {
-  height: 20px;
-  margin-top: 20px;
+  /* border-bottom: 1px solid lightgrey; */
+  padding: 10px 0;
+  width: 1280px;
+  margin: 0 auto;
 }
 
 .header img {
   height: 75px;
 }
 
+.header > nav {
+  margin-right: 30px;
+}
+
+.nav-elem {
+  margin-left: 30px;
+  color: #2cb1ba;
+  text-decoration: none;
+  border: 1px solid #2cb1ba;
+  border-radius: 5px;
+  padding: 6px 20px;
+}
+
+/* HERO SECTION */
+.hero {
+  height: 20px;
+  margin-top: 20px;
+}
+
 .offers {
   height: 400px;
   width: 300px;
   object-fit: cover;
+}
+
+/* PAGE SIGNUP */
+.signup {
+  width: 275px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  height: 400px;
+}
+
+.signup form input:not(:last-child) {
+  margin-bottom: 20px;
+  border-bottom: 2px solid red;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.submit {
+  background-color: inherit;
+  width: 100%;
+  background-color: #2cb1ba;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  height: 45px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* FOOTER  */
+.footer {
+  height: 100px;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 2px solid lightgrey;
 }

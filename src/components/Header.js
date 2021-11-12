@@ -7,22 +7,32 @@ const Header = ({ token, setUser }) => {
   return (
     <div className="header">
       <img src={vintedLogo} alt="logo Vinted" />
-      <Link to="/">Aller à l'accueil</Link>
-      {token ? (
-        <button
-          onClick={() => {
-            setUser(null);
-            navigate("/");
-          }}
-        >
-          Se déconnecter
-        </button>
-      ) : (
-        <>
-          <Link to="/signup">S'inscrire</Link>
-          <Link to="/login">Se connecter</Link>
-        </>
-      )}
+
+      <nav>
+        <Link to="/" className="nav-elem">
+          Aller à l'accueil
+        </Link>
+        {token ? (
+          <button
+            className="nav-elem"
+            onClick={() => {
+              setUser(null);
+              navigate("/");
+            }}
+          >
+            Se déconnecter
+          </button>
+        ) : (
+          <>
+            <Link to="/signup" className="nav-elem">
+              S'inscrire
+            </Link>
+            <Link to="/login" className="nav-elem">
+              Se connecter
+            </Link>
+          </>
+        )}
+      </nav>
     </div>
   );
 };
