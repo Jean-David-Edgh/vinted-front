@@ -25,7 +25,7 @@ const Signup = ({ setUser }) => {
         if (response.data.token) {
           setUser(response.data.token);
           navigate("/");
-        } else alert("erreur");
+        }
       } catch (error) {
         console.log(error.message);
         if (error.response.status === 409) {
@@ -33,7 +33,7 @@ const Signup = ({ setUser }) => {
         }
       }
     } else {
-      alert("Vos mots de passe ne sont pas identiques !");
+      alert("Vos mots de passe ne sont pas identiques ! Abruti $$");
     }
   };
 

@@ -26,8 +26,8 @@ function App() {
       <Header token={token} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup setUser={setUser} />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/offer/:id" element={<Offer />} />
       </Routes>
       <Footer />
