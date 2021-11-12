@@ -7,7 +7,7 @@ const Header = ({ token, setUser }) => {
   return (
     <div className="header">
       <img src={vintedLogo} alt="logo Vinted" />
-
+      <Link to="/">Aller à l'accueil</Link>
       {token ? (
         <button
           onClick={() => {

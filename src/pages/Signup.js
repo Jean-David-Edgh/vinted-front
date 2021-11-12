@@ -13,9 +13,9 @@ const Signup = ({ setUser }) => {
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
+    event.preventDefault();
     if (password === confirmPassword) {
       try {
-        event.preventDefault();
         // faire la requete axios
         const response = await axios.post(
           "https://lereacteur-vinted-api.herokuapp.com/user/signup",
