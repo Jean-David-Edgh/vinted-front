@@ -1,15 +1,28 @@
 import vintedLogo from "../images/vinted_logo.png";
+import { Link, useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ token, setUser }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="header">
       <img src={vintedLogo} alt="logo Vinted" />
-      <div className="menu">
-        <button>S'inscrire</button>
-        <button>Se connecter</button>
-        <button>Vends tes articles</button>
-        <button>Se déconnecter</button>
-      </div>
+
+      {token ? (
+        <button
+          onClick={() => {
+            setUser(null);
+            navigate("/");
+          }}
+        >
+          Se déconnecter
+        </button>
+      ) : (
+        <>
+          <Link to="/signup">S'inscrire</Link>
+          <Link to="/login">Se connecter</Link>
+        </>
+      )}
     </div>
   );
 };

@@ -1,32 +1,38 @@
 import { useState } from "react";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Signup = () => {
+const Signup = ({ setUser }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [step2, setStep2] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
     if (password === confirmPassword) {
-      // faire la requete axios
       try {
+        event.preventDefault();
+        // faire la requete axios
         const response = await axios.post(
           "https://lereacteur-vinted-api.herokuapp.com/user/signup",
-          { username: username, email: email, password: password }
-        ); // en fonction de la réponse
+          { username, email, password }
+        );
+        // en fonction de la réponse
         if (response.data.token) {
-          Cookies.set("myToken", response.data.token, { expires: 30 });
+          // Cookies.set("myToken", response.data.token, { expires: 30 });
+          setUser(response.data.token);
           navigate("/");
         } else alert("erreur");
       } catch (error) {
         console.log(error.message);
+        if (error.response.status === 409) {
+          setErrorMessage("Cet email a déjà un compte");
+        }
       }
     } else {
       alert("Vos mots de passe ne sont pas identiques ! Abruti $$");
@@ -73,6 +79,9 @@ const Signup = () => {
             placeholder="confirm your password"
             value={confirmPassword}
           />
+          <br />
+          <span style={{ color: "red" }}>{errorMessage}</span>
+          <br />
           <input type="submit" />
         </form>
       ) : (

@@ -1,32 +1,31 @@
 import { useState } from "react";
-import Cookies from "js-cookie";
-import { useNavigate } from "react-router-dom";
+// import Cookies from "js-cookie";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
-const Login = () => {
+const Login = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
     try {
+      event.preventDefault();
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/user/login",
-        { email: email, password: password }
-      ); // en fonction de la réponse
-      //   if (
-      //     response.data.password === { password } ||
-      //     response.data.email === { email }
-      //   )
+        { email, password }
+      );
+      // en fonction de la réponse
       if (response.data.token) {
-        Cookies.set("myToken", response.data.token, { expires: 30 });
+        // Cookies.set("myToken", response.data.token, { expires: 30 });
+        setUser(response.data.token);
         navigate("/");
       }
     } catch (error) {
       if (error.response.status === 401) {
-        alert("mauvais compte ou mot de passe");
+        setErrorMessage("mauvais compte ou mauvais mot de passe !");
       } else console.log(error.message);
     }
   };
@@ -51,9 +50,12 @@ const Login = () => {
           placeholder="password"
           value={password}
         />
+        <br />
+        <span style={{ color: "red" }}>{errorMessage}</span>
+        <br />
         <input type="submit" />
       </form>
-      <p>Pas encore de compte ? Inscris-toi !</p>
+      <Link to="/signup">Pas encore de compte ? Inscris-toi !</Link>
     </div>
   );
 };
