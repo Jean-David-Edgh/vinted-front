@@ -33,7 +33,7 @@ const Signup = ({ setUser }) => {
         }
       }
     } else {
-      alert("Vos mots de passe ne sont pas identiques ! Abruti $$");
+      alert("Vos mots de passe ne sont pas identiques !");
     }
   };
 
