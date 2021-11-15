@@ -8,6 +8,10 @@ import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Publish from "./pages/Publish";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+library.add(faSearch);
 
 function App() {
   const [token, setToken] = useState(null);
@@ -29,6 +33,7 @@ function App() {
         <Route path="/signup" element={<Signup setUser={setUser} />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/offer/:id" element={<Offer />} />
+        <Route path="/publish" element={<Publish />} />
       </Routes>
       <Footer />
     </Router>

@@ -1,38 +1,54 @@
-import vintedLogo from "../images/vinted_logo.png";
+import logoVinted from "../images/logo-vinted.png";
 import { Link, useNavigate } from "react-router-dom";
 
 const Header = ({ token, setUser }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="header">
-      <img src={vintedLogo} alt="logo Vinted" />
+    <div>
+      <div className="header">
+        <img onClick={() => navigate("/")} src={logoVinted} alt="logo Vinted" />
+        {/* <FontAwesomeIcon icon="search" /> */}
+        <input
+          type="text"
+          placeholder="Recherche des articles"
+          className="search"
+        />
+        <nav>
+          {/* <Link to="/" className="nav-elem">
+            Aller à l'accueil
+          </Link> */}
 
-      <nav>
-        <Link to="/" className="nav-elem">
-          Aller à l'accueil
-        </Link>
-        {token ? (
-          <button
-            className="nav-elem"
-            onClick={() => {
-              setUser(null);
-              navigate("/");
-            }}
-          >
-            Se déconnecter
-          </button>
-        ) : (
-          <>
-            <Link to="/signup" className="nav-elem">
-              S'inscrire
-            </Link>
-            <Link to="/login" className="nav-elem">
-              Se connecter
-            </Link>
-          </>
-        )}
-      </nav>
+          {token ? (
+            <div>
+              <button
+                className="nav-disc"
+                onClick={() => {
+                  setUser(null);
+                  navigate("/");
+                }}
+              >
+                Se déconnecter
+              </button>{" "}
+              <Link to="/publish" className="sell-elem">
+                Vends tes articles
+              </Link>
+            </div>
+          ) : (
+            <>
+              <Link to="/signup" className="nav-elem">
+                S'inscrire
+              </Link>
+              <Link to="/login" className="nav-elem">
+                Se connecter
+              </Link>
+              <Link to="/publish" className="sell-elem">
+                Vends tes articles
+              </Link>
+            </>
+          )}
+        </nav>
+      </div>
     </div>
   );
 };

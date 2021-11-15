@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 const Signup = ({ setUser }) => {
@@ -39,49 +39,75 @@ const Signup = ({ setUser }) => {
 
   return (
     <div className="signup">
-      <h1>S'inscrire</h1>
       {step2 === false ? (
-        <form onSubmit={handleSubmit}>
-          <input
-            onChange={(event) => {
-              setUsername(event.target.value);
-            }}
-            type="text"
-            placeholder="Nom d'utilisateur"
-            value={username}
-          />
-          <br />
-          <input
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-            type="email"
-            placeholder="email"
-            value={email}
-          />
-          <br />
-          <input
-            onChange={(event) => {
-              setPassword(event.target.value);
-            }}
-            type="password"
-            placeholder="password"
-            value={password}
-          />
-          <br />
-          <input
-            onChange={(event) => {
-              setConfirmPassword(event.target.value);
-            }}
-            type="password"
-            placeholder="confirm your password"
-            value={confirmPassword}
-          />
-          <br />
-          <span style={{ color: "red" }}>{errorMessage}</span>
-          <br />
-          <input type="submit" value={"S'inscrire"} className="submit" />
-        </form>
+        <div className="signup">
+          <h1>S'inscrire</h1>
+          <form onSubmit={handleSubmit}>
+            <input
+              onChange={(event) => {
+                setUsername(event.target.value);
+              }}
+              type="text"
+              placeholder="Nom d'utilisateur"
+              value={username}
+            />
+            <br />
+            <input
+              onChange={(event) => {
+                setEmail(event.target.value);
+              }}
+              type="email"
+              placeholder="email"
+              value={email}
+            />
+            <br />
+            <input
+              onChange={(event) => {
+                setPassword(event.target.value);
+              }}
+              type="password"
+              placeholder="mot de passe"
+              value={password}
+            />
+            <br />
+            <input
+              onChange={(event) => {
+                setConfirmPassword(event.target.value);
+              }}
+              type="password"
+              placeholder="confirmez votre mot de passe"
+              value={confirmPassword}
+            />
+            <br />
+            <span style={{ color: "red" }}>{errorMessage}</span>
+            <br />
+            <div className="checkbox-container">
+              <input
+                type="checkbox"
+                name="subscribe"
+                value="newsletter"
+                id="newsletterCheck"
+                className="checkbox-elem exclude"
+              />
+              <label for="newsletterCheck">S'inscrire à notre newsletter</label>
+            </div>
+            <p className="subtext">
+              En m'inscrivant, je confirme avoir lu et accepté les Termes &
+              Conditions et Politique de Confidentialité de Vinted. Je confirme
+              avoir au moins 18 ans.
+            </p>
+
+            <br />
+            <input
+              type="submit"
+              value={"S'inscrire"}
+              className="submit-signup exclude"
+            />
+          </form>
+          <Link to="/login" className="lead-signup">
+            Tu as déjà un compte ? Connecte-toi !
+          </Link>
+        </div>
       ) : (
         setStep2(true)
       )}

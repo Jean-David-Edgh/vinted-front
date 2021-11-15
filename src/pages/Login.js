@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import Cookies from "js-cookie";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
@@ -19,7 +18,6 @@ const Login = ({ setUser }) => {
       );
       // en fonction de la réponse
       if (response.data.token) {
-        // Cookies.set("myToken", response.data.token, { expires: 30 });
         setUser(response.data.token);
         navigate("/");
       }
@@ -32,6 +30,7 @@ const Login = ({ setUser }) => {
 
   return (
     <div className="login">
+      <h1>Se connecter</h1>
       <form onSubmit={handleSubmit}>
         <input
           onChange={(event) => {
@@ -47,15 +46,17 @@ const Login = ({ setUser }) => {
             setPassword(event.target.value);
           }}
           type="password"
-          placeholder="password"
+          placeholder="mot de passe"
           value={password}
         />
         <br />
         <span style={{ color: "red" }}>{errorMessage}</span>
         <br />
-        <input type="submit" />
+        <input type="submit" className="submit exclude" />
       </form>
-      <Link to="/signup">Pas encore de compte ? Inscris-toi !</Link>
+      <Link to="/signup" className="lead">
+        Pas encore de compte ? Inscris-toi !
+      </Link>
     </div>
   );
 };
