@@ -33,7 +33,7 @@ function App() {
         <Route path="/signup" element={<Signup setUser={setUser} />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/offer/:id" element={<Offer />} />
-        <Route path="/publish" element={<Publish />} />
+        <Route path="/publish" element={<Publish token={token} />} />
       </Routes>
       <Footer />
     </Router>
