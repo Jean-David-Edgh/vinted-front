@@ -4,6 +4,24 @@ import { Link, useNavigate } from "react-router-dom";
 const Header = ({ token, setUser }) => {
   const navigate = useNavigate();
 
+  // const [filters, setFilters] = useState("");
+
+  // const searchResults = (event) => {
+  //   let newResults = [];
+  //   for (let i = 0; i < tableaudesoffres.length; i++) {
+  //     if (
+  //       tableaudesoffres[i].keywords.indexOf(event.target.value.toLowerCase()) !== -1
+  //     ) {
+  //       if (newResults.length >= 20) {
+  //         break;
+  //       } else {
+  //         newResults.push(tableaudesoffres[i]);
+  //       }
+  //     }
+  //   }
+  //   setResults(newResults);
+  // };
+
   return (
     <div>
       <div className="header">

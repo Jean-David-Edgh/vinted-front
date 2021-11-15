@@ -14,6 +14,7 @@ const Home = () => {
         const response = await axios.get(
           "https://lereacteur-vinted-api.herokuapp.com/offers"
         );
+        console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -37,8 +38,9 @@ const Home = () => {
           </div>
         </div>
       </div>
+
       <div className="home">
-        {data.offers.map((offer, index) => {
+        {data.offers.map((offer) => {
           return (
             <Link key={offer._id} to={`/offer/${offer._id}`}>
               <h3>{offer.product_name}</h3>
@@ -46,6 +48,16 @@ const Home = () => {
                 src={offer.product_image.secure_url}
                 alt={offer.product_name}
               />
+              {/* <ul className="offer-desc">
+                {offer.product_details.map((elem, index) => {
+                  const keys = Object.keys(elem);
+                  return (
+                    <li key={index}>
+                      <span>{elem[keys[0]]}</span>
+                    </li>
+                  );
+                })}
+              </ul> */}
             </Link>
           );
         })}

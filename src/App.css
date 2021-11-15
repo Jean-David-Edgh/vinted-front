@@ -6,6 +6,10 @@ h1 {
   margin-bottom: 20px;
 }
 
+.body h3 {
+  text-decoration: none;
+}
+
 /* HEADER */
 .header {
   display: flex;
@@ -279,6 +283,37 @@ h1 {
   border-radius: 5px;
   font-size: 16px;
   margin-top: 30px;
+}
+
+/* PAGE OFFER */
+.offers-container {
+  background-color: #ebedee;
+  height: 900px;
+}
+
+.offers {
+  display: flex;
+  width: 1280px;
+  margin: 0 auto;
+  justify-content: space-around;
+  padding-top: 30px;
+  align-content: center;
+}
+
+.offers img {
+  height: 605px;
+  width: 450px;
+  object-fit: cover;
+}
+
+.offer-desc {
+  /* height: 530px; */
+  width: 370px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
 }
 
 /* FOOTER  */

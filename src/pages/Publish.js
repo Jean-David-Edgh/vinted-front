@@ -11,7 +11,7 @@ const Publish = ({ token }) => {
   const [color, setColor] = useState("");
   const [condition, setCondition] = useState("");
   const [city, setCity] = useState("");
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState();
   const [data, setData] = useState();
 
   const handleSubmit = async (event) => {
@@ -35,7 +35,7 @@ const Publish = ({ token }) => {
         {
           headers: {
             authorization: `Bearer ${token}`,
-            // "content-type": "multipart/form-data",
+            "content-Type": "multipart/form-data",
           },
         }
       );
@@ -56,6 +56,7 @@ const Publish = ({ token }) => {
             onChange={(event) => setFile(event.target.files[0])}
             type="file"
             placeholder="Ajoute une photo"
+            title="Choose a video please"
           />
           <br />
           <form onSubmit={handleSubmit}>

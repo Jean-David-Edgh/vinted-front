@@ -26,20 +26,22 @@ const Offer = () => {
   return isLoading ? (
     <div>En cours de chargement...</div>
   ) : (
-    <div className="offers">
-      <h3>{data.product_name}</h3>
-      <img src={data.product_image.secure_url} alt="" />
-      <ul>
-        {data.product_details.map((elem, index) => {
-          const keys = Object.keys(elem);
-          return (
-            <li key={index}>
-              <span>{keys[0]}</span>
-              <span>{elem[keys[0]]}</span>
-            </li>
-          );
-        })}
-      </ul>
+    <div className="offers-container">
+      <div className="offers">
+        {/* <h3>{data.product_name}</h3> */}
+        <img src={data.product_image.secure_url} alt="" />
+        <ul className="offer-desc">
+          {data.product_details.map((elem, index) => {
+            const keys = Object.keys(elem);
+            return (
+              <li key={index}>
+                <span>{keys[0]}</span>
+                <span>{elem[keys[0]]}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 };
