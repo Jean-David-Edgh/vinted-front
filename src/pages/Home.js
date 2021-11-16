@@ -30,8 +30,8 @@ const Home = () => {
     <div className="body">
       <div className="hero-section">
         <div className="home-cta">
-          <p>Prêts à faire du tri dans vos placards ?</p>
-          <button>Commencez à vendre</button>
+          <p className="hero-text">Prêts à faire du tri dans vos placards ?</p>
+          <button className="submit exclude">Commencez à vendre</button>
         </div>
         <img src={vintedHero} alt="fond Vinted" className="hero-img" />
         <img src={effetDechire} alt="effet déchiré" className="effet-hero" />

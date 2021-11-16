@@ -126,9 +126,19 @@ h3 {
   position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   margin-left: 8%;
-  margin-top: 10%;
+  margin-top: 6%;
+  background-color: #fff;
+  height: 220px;
+  width: 300px;
+  font-size: 34px;
+  padding: 25px;
+  border-radius: 3px;
+  font-family: "Roboto", sans-serif;
+}
+
+.hero-text {
+  margin-bottom: 30px;
 }
 
 .home img {

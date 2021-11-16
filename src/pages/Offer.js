@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Offer = () => {
   const { id } = useParams();
@@ -56,8 +57,12 @@ const Offer = () => {
             </form> */}
             <button
               className="submit exclude"
+              // onClick={() => {
+              //   // navigate("/payment");
+              //   <Link key={data._id} to={`/payment/${data._id}`}></Link>;
+              // }}
               onClick={() => {
-                navigate("/payment");
+                navigate("/payment/");
               }}
             >
               Acheter
