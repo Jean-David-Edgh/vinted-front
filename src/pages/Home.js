@@ -35,9 +35,6 @@ const Home = () => {
         </div>
         <img src={vintedHero} alt="fond Vinted" className="hero-img" />
         <img src={effetDechire} alt="effet déchiré" className="effet-hero" />
-        {/* <div className="hero-cta-container"> */}
-
-        {/* </div> */}
       </div>
 
       <div className="home">

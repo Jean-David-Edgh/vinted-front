@@ -366,6 +366,25 @@ h3 {
   color: #999;
 }
 
+/* PAGE PAYMENT */
+.payment-page {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.payment-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.payment-form {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
 /* FOOTER  */
 .footer {
   height: 100px;
