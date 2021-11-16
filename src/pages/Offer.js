@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Offer = () => {
@@ -10,7 +10,7 @@ const Offer = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,8 +55,11 @@ const Offer = () => {
                 value={"Acheter"}
               />
             </form> */}
-            <Link to="/payment/" state={{ title: {data.product_name}, price: {data.product_price}}}
-              className="submit exclude">
+            <Link
+              to="/payment/"
+              state={{ title: data.product_name, price: data.product_price }}
+              className="submit-offer"
+            >
               Acheter
             </Link>
           </li>

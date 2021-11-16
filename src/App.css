@@ -376,6 +376,18 @@ h3 {
   color: #999;
 }
 
+.submit-offer {
+  background-color: #2cb1ba;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  height: 45px;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
 /* PAGE PAYMENT */
 .payment-page {
   width: 1280px;
@@ -390,7 +402,7 @@ h3 {
 }
 
 .payment-form {
-  width: 600px;
+  width: 400px;
   margin: 0 auto;
   margin-top: 50px;
 }
