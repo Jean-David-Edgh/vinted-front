@@ -14,18 +14,22 @@ const CheckoutForm = () => {
 
       const cardElements = element.getElement(CardElement);
       const stripeResponse = await stripe.createToken(cardElements, {
-        // name: { userId },
+        name: "L'id de l'acheteur",
       });
+
+      const stripeToken = stripeResponse.token.id;
+
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/payment",
         {
-          stripeToken: stripeResponse.token.id,
-          productPrice: 50,
+          token: stripeToken,
+          title: "Titre",
+          amount: 10,
         }
       );
-      console.log(response.data);
+
       if (response.status === 200) {
-        setValid("Paiement validé ! Félicitations !!!!!!!");
+        setValid("Paiement validé ! Merci !");
       }
     } catch (error) {
       console.log(error.message);
@@ -33,11 +37,20 @@ const CheckoutForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <CardElement />
-      <input type="submit" />
-      <span>{valid}</span>
-    </form>
+    <>
+      {!valid ? (
+        <form onSubmit={handleSubmit}>
+          <CardElement />
+          <button type="submit">Valider</button>
+        </form>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <CardElement />
+          <input type="submit" />
+          <span>{valid}</span>
+        </form>
+      )}
+    </>
   );
 };
 

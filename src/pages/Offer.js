@@ -44,17 +44,10 @@ const Offer = () => {
               </li>
             );
           })}
-          <li>{data.product_name}</li>
-          <li>{data.product_description}</li>
-          <li>{data.owner.account.username}</li>
+          <li className="sub-desc">{data.product_name}</li>
+          <li className="sub-desc">{data.product_description}</li>
+          <li className="sub-desc">{data.owner.account.username}</li>
           <li>
-            {/* <form>
-              <input
-                type="submit"
-                className="submit exclude"
-                value={"Acheter"}
-              />
-            </form> */}
             <Link
               to="/payment/"
               state={{ title: data.product_name, price: data.product_price }}
