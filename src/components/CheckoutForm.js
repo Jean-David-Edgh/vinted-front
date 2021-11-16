@@ -20,12 +20,12 @@ const CheckoutForm = () => {
         "https://lereacteur-vinted-api.herokuapp.com/payment",
         {
           stripeToken: stripeResponse.token.id,
-          productPrice: { product_price },
+          // productPrice: { product_price },
         }
       );
       console.log(response.data);
       if (response.status === 200) {
-        setValid("Paiement validé ! Félicitations !");
+        setValid("Paiement validé ! Félicitations !!!!!!!");
       }
     } catch (error) {
       console.log(error.message);
