@@ -55,16 +55,8 @@ const Offer = () => {
                 value={"Acheter"}
               />
             </form> */}
-            <Link
-              className="submit exclude"
-              // onClick={() => {
-              //   // navigate("/payment");
-              //   <Link key={data._id} to={`/payment/${data._id}`}></Link>;
-              // }}
-              // onClick={() => {
-              //   navigate("/payment/", state={{ title: {data.product_name}, price: {data.product_price}}});
-              // }}
-            >
+            <Link to="/payment/" state={{ title: {data.product_name}, price: {data.product_price}}}
+              className="submit exclude">
               Acheter
             </Link>
           </li>
