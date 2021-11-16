@@ -39,7 +39,7 @@ const Publish = ({ token }) => {
           },
         }
       );
-      console.log(response.data);
+      //   console.log(response.data);
       setData(response.data);
     } catch (error) {
       console.log(error.message);
@@ -55,8 +55,6 @@ const Publish = ({ token }) => {
             // multiple={true} : si besoin de plusieurs photos
             onChange={(event) => setFile(event.target.files[0])}
             type="file"
-            placeholder="Ajoute une photo"
-            title="Choose a video please"
           />
           <br />
           <form onSubmit={handleSubmit}>

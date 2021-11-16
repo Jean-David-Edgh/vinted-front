@@ -28,18 +28,21 @@ const Offer = () => {
   ) : (
     <div className="offers-container">
       <div className="offers">
-        {/* <h3>{data.product_name}</h3> */}
         <img src={data.product_image.secure_url} alt="" />
         <ul className="offer-desc">
+          <p className="price-item">{data.product_price}€</p>
           {data.product_details.map((elem, index) => {
             const keys = Object.keys(elem);
             return (
-              <li key={index}>
-                <span>{keys[0]}</span>
-                <span>{elem[keys[0]]}</span>
+              <li key={index} className="prop-desc">
+                <span className="prop">{keys[0]}</span>
+                <span className="prop-item">{elem[keys[0]]}</span>
               </li>
             );
           })}
+          <li>{data.product_name}</li>
+          <li>{data.product_description}</li>
+          <li>{data.owner.account.username}</li>
         </ul>
       </div>
     </div>

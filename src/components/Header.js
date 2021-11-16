@@ -26,6 +26,7 @@ const Header = ({ token, setUser }) => {
     <div>
       <div className="header">
         <img onClick={() => navigate("/")} src={logoVinted} alt="logo Vinted" />
+
         {/* <FontAwesomeIcon icon="search" /> */}
         <input
           type="text"
@@ -33,10 +34,6 @@ const Header = ({ token, setUser }) => {
           className="search"
         />
         <nav>
-          {/* <Link to="/" className="nav-elem">
-            Aller à l'accueil
-          </Link> */}
-
           {token ? (
             <div>
               <button

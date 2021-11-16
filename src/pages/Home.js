@@ -29,14 +29,15 @@ const Home = () => {
   ) : (
     <div className="body">
       <div className="hero-section">
+        <div className="home-cta">
+          <p>Prêts à faire du tri dans vos placards ?</p>
+          <button>Commencez à vendre</button>
+        </div>
         <img src={vintedHero} alt="fond Vinted" className="hero-img" />
         <img src={effetDechire} alt="effet déchiré" className="effet-hero" />
-        <div className="hero-cta-container">
-          <div className="home-cta">
-            <p>Prêts à faire du tri dans vos placards ?</p>
-            <button>Commencez à vendre</button>
-          </div>
-        </div>
+        {/* <div className="hero-cta-container"> */}
+
+        {/* </div> */}
       </div>
 
       <div className="home">
@@ -48,7 +49,8 @@ const Home = () => {
                 src={offer.product_image.secure_url}
                 alt={offer.product_name}
               />
-              {/* <ul className="offer-desc">
+              <ul className="offer-desc-home">
+                <li>{offer.product_price}€</li>
                 {offer.product_details.map((elem, index) => {
                   const keys = Object.keys(elem);
                   return (
@@ -57,7 +59,7 @@ const Home = () => {
                     </li>
                   );
                 })}
-              </ul> */}
+              </ul>
             </Link>
           );
         })}
