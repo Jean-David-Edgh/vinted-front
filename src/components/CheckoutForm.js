@@ -11,19 +11,16 @@ const CheckoutForm = () => {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
-      // Etape 1 : envoyer les données de CardElement à l'API Stripe
-      // Récupérer les données rentrées dans CardElement
+
       const cardElements = element.getElement(CardElement);
-      // Envoyer à l'API Stripe
       const stripeResponse = await stripe.createToken(cardElements, {
         // name: { userId },
       });
-      // Etape 2 : envoyer le stripeToken à mon serveur
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/payment",
         {
           stripeToken: stripeResponse.token.id,
-          productPrice: 20,
+          productPrice: { product_price },
         }
       );
       console.log(response.data);
