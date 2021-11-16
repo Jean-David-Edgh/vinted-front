@@ -35,6 +35,11 @@ h3 {
   padding: 6px 20px;
 }
 
+.nav-elem:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .nav-disc {
   background-color: #c2175b;
   color: #fff;
@@ -42,6 +47,11 @@ h3 {
   border-radius: 5px;
   padding: 6px 20px;
   margin-left: 30px;
+}
+
+.nav-disc:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 .sell-elem {
@@ -52,6 +62,11 @@ h3 {
   border: 1px solid #2cb1ba;
   border-radius: 5px;
   padding: 6px 20px;
+}
+
+.sell-elem:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 .search {
@@ -145,6 +160,11 @@ h3 {
   align-items: center;
 }
 
+.submit-hero:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .home img {
   height: 300px;
   width: 235px;
@@ -231,6 +251,11 @@ h3 {
   margin-top: 30px;
 }
 
+.submit-signup:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .lead-signup {
   font-size: 12px;
   color: #2cb1ba;
@@ -298,6 +323,11 @@ h3 {
   font-size: 16px;
 }
 
+.submit:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .lead {
   font-size: 12px;
   color: #2cb1ba;
@@ -319,7 +349,7 @@ h3 {
 
 .publish > form {
   margin-top: 10px;
-  width: 275px;
+  width: 515px;
 }
 
 .publish form input:not(.exclude) {
@@ -343,6 +373,25 @@ h3 {
   border-radius: 5px;
   font-size: 16px;
   margin-top: 30px;
+}
+
+.submit-publish:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-pic {
+  margin-bottom: 10px;
+}
+
+.pic-select {
+  margin-bottom: 25px;
 }
 
 /* PAGE OFFER */
@@ -417,6 +466,10 @@ h3 {
   align-items: center;
 }
 
+.submit-offer:hover {
+  opacity: 0.8;
+}
+
 /* PAGE PAYMENT */
 .payment-page {
   width: 600px;
@@ -446,6 +499,15 @@ h3 {
   color: #fff;
   border-radius: 5px;
   margin-top: 10px;
+}
+
+.payment-form button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.payment-form button:active {
+  background-color: #2cb1ba;
 }
 
 .payment-container ul {

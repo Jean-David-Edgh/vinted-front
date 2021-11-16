@@ -15,7 +15,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 library.add(faSearch);
 
 function App() {
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(Cookies.get("userToken") || null);
 
   const setUser = (token) => {
     if (token) {

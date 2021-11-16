@@ -51,61 +51,82 @@ const Publish = ({ token }) => {
       {token ? (
         <div className="publish">
           <h1>Vends ton article</h1>
+          <div className="item-pic">
+            <span>Photo</span>
+          </div>
           <input
             // multiple={true} : si besoin de plusieurs photos
             onChange={(event) => setFile(event.target.files[0])}
             type="file"
+            className="pic-select"
           />
-          <br />
-          <form onSubmit={handleSubmit}>
-            <input
-              onChange={(event) => setTitle(event.target.value)}
-              type="text"
-              placeholder="Nom de l'article (ex. : Chemise Sézane verte)"
-            />
-            <br />
-            <input
-              onChange={(event) => setDescription(event.target.value)}
-              type="text"
-              placeholder="ex. : porté quelquefois, taille correctement"
-            />
-            <br />
-            <input
-              onChange={(event) => setBrand(event.target.value)}
-              type="text"
-              placeholder="ex. : Zara"
-            />
-            <br />
-            <input
-              onChange={(event) => setSize(event.target.value)}
-              type="text"
-              placeholder="ex. : L / 40 / 12"
-            />
-            <br />
-            <input
-              onChange={(event) => setColor(event.target.value)}
-              type="text"
-              placeholder="ex. : Fushia"
-            />
-            <br />
-            <input
-              onChange={(event) => setCondition(event.target.value)}
-              type="text"
-              placeholder="ex. : Neuf avec étiquette"
-            />
-            <br />
-            <input
-              onChange={(event) => setCity(event.target.value)}
-              type="text"
-              placeholder="ex. : Paris"
-            />
-            <br />
-            <input
-              onChange={(event) => setPrice(event.target.value)}
-              type="text"
-              placeholder="0,00 €"
-            />
 
+          <form onSubmit={handleSubmit}>
+            <div className="flex">
+              <span>Nom de l'article</span>
+              <input
+                onChange={(event) => setTitle(event.target.value)}
+                type="text"
+                placeholder="Nom de l'article (ex. : Chemise Sézane verte)"
+              />
+            </div>
+            <div className="flex">
+              <span>Description de l'article</span>
+              <input
+                onChange={(event) => setDescription(event.target.value)}
+                type="text"
+                placeholder="ex. : porté quelquefois, taille correctement"
+              />
+            </div>
+            <div className="flex">
+              <span>Marque</span>
+              <input
+                onChange={(event) => setBrand(event.target.value)}
+                type="text"
+                placeholder="ex. : Zara"
+              />
+            </div>
+            <div className="flex">
+              <span>Taille</span>
+              <input
+                onChange={(event) => setSize(event.target.value)}
+                type="text"
+                placeholder="ex. : L / 40 / 12"
+              />
+            </div>
+
+            <div className="flex">
+              <span>Couleur</span>
+              <input
+                onChange={(event) => setColor(event.target.value)}
+                type="text"
+                placeholder="ex. : Fushia"
+              />
+            </div>
+            <div className="flex">
+              <span>Etat</span>
+              <input
+                onChange={(event) => setCondition(event.target.value)}
+                type="text"
+                placeholder="ex. : Neuf avec étiquette"
+              />
+            </div>
+            <div className="flex">
+              <span>Emplacement</span>
+              <input
+                onChange={(event) => setCity(event.target.value)}
+                type="text"
+                placeholder="ex. : Paris"
+              />
+            </div>
+            <div className="flex">
+              <span>Prix</span>
+              <input
+                onChange={(event) => setPrice(event.target.value)}
+                type="text"
+                placeholder="0,00 €"
+              />
+            </div>
             <input
               type="submit"
               className="submit-publish exclude"
